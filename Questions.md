@@ -65,4 +65,84 @@
 
 If yes, check:
 - Can you redirect to different paths?
-- Can you redirect to
+- Can you redirect to different subdomains?
+- Can you redirect to different domains?
+</details>
+
+<details open>
+<summary><b>2️⃣ Reflected user-controlled data?</b></summary>
+
+If yes, check for:
+- HTML injection
+- XSS
+- SSTI (server-side template injection)
+</details>
+
+<details open>
+<summary><b>3️⃣ CSRF?</b></summary>
+
+Check whether CSRF tokens are invalidated after use or after logout.
+
+If vulnerable, check:
+- What can be done through this endpoint?
+- Is this endpoint also an open redirect?
+</details>
+
+<details open>
+<summary><b>4️⃣ Changing the HTTP verb?</b></summary>
+
+If the verb can be changed, check:
+- Does the endpoint behave the same way?
+- Are any parameters rejected?
+</details>
+
+---
+
+## 🧪 Vulnerability Testing Approach
+
+| Vulnerability | Approach |
+|---------------|----------|
+| Account Takeover | Burp (manual) |
+| Code Injection | Burp (scans / manual) |
+| HTML Injection | Custom script / Burp (scans / manual) |
+| IDOR | Burp (manual) |
+| Information Disclosure | Custom recon script / manual search |
+| Prototype Pollution | Custom script / browser dev tools (manual) |
+| RCE | Nuclei (known CVEs) / Burp (manual) |
+| SSRF | Burp (manual) |
+| XSS | Custom script / Burp (scans / manual) |
+| SSTI | Custom script / Burp (scans) |
+| CSRF | Burp (manual) |
+| OAuth | Burp (manual) |
+| Deserialization | Burp (manual / scans) / source code analysis |
+| HTTP Request Smuggling | Burp (scans) |
+| WebSockets | Burp (manual) |
+| HTTP Host Header | Burp (manual) |
+
+---
+
+## 📝 Report Template
+
+Use this as a starting skeleton before writing a full `report.md`:
+
+```
+REPORT:
+TITLE:
+PROGRAM:
+APP FUNCTION:
+ENDPOINT:
+CRUD / EXPLOITED FUNCTION:
+SUMMARY:
+TECHNICAL SKILL REQUIRED:
+TAKEAWAYS:
+1.
+2.
+3.
+VULN DISCOVERY / AUTOMATION USED:
+```
+
+---
+
+<p align="center">
+  <sub>📚 For learning and authorized testing only. Always stay within a program's scope and rules.</sub>
+</p>
